@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -26,14 +27,12 @@ public class Main {
         Player1 p1 = new Player1("P1");
         Player2 p2 = new Player2("P2");
         System.out.println("Welcome to the game!");
-        int a = 0;
-        do {
-            if (p1.isTurn) {
-                p1.move(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, a);
-            } else {
-                p2.move(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, a);
-            }
-        } while (a < 5);
+
+        while (p1.getIsTurn() == true || p2.getIsTurn() == false) {
+            p1.move(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares);
+            p2.move(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares);
+        }
     }
 }
+
 

@@ -19,12 +19,12 @@ abstract public class Player {
         this.symbol = symbol;
     }
 
-    public boolean isTurn() {
+    public boolean getIsTurn() {
         return isTurn;
     }
 
-    public void setTurn(boolean turn) {
-        isTurn = turn;
+    public void setIsTurn(boolean turn) {
+        this.isTurn = turn;
     }
 
     public Player(String name, String symbol, boolean isTurn) {

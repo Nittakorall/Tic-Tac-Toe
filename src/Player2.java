@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 public class Player2 extends Player implements Move {
     public Player2(String name) {
-        super(name, "O", false);
+        super(name, "O", true);
     }
 
     @Override
-    public void move(Scanner sc, TicTacToeSquare a1, TicTacToeSquare a2, TicTacToeSquare a3, TicTacToeSquare b1, TicTacToeSquare b2, TicTacToeSquare b3, TicTacToeSquare c1, TicTacToeSquare c2, TicTacToeSquare c3, ArrayList<TicTacToeSquare> allSquares, int a) {
+    public void move(Scanner sc, TicTacToeSquare a1, TicTacToeSquare a2, TicTacToeSquare a3, TicTacToeSquare b1, TicTacToeSquare b2, TicTacToeSquare b3, TicTacToeSquare c1, TicTacToeSquare c2, TicTacToeSquare c3, ArrayList<TicTacToeSquare> allSquares) {
         System.out.println(name + ", what's your next move?");
         String answer = sc.nextLine();
         //answer = a3;
@@ -24,12 +24,9 @@ public class Player2 extends Player implements Move {
                 System.out.println("--- --- ---");
                 System.out.println(" " + c1.getValue() + " | " + c2.getValue() + " | " + c3.getValue() + " ");
 
-                isTurn = !isTurn;
-a++;
+
+
             }
-
-        }
-
-
+        }isTurn = !isTurn;
     }
 }
