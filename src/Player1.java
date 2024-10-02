@@ -18,9 +18,9 @@ public class Player1 extends Player implements Move {
             if (answer.equals(s.getPlace()) && s.getValue().equals(" ")) {
                 s.setValue(symbol);
 
-                System.out.println(" " + a1.getValue() + " | " + a2.getValue() + " | " + a3.getValue() + " ");
+                System.out.println("   " + a1.getValue() + " | " + a2.getValue() + " | " + a3.getValue() + " ");
                 System.out.println("---+---+---");
-                System.out.println(" " + b1.getValue() + " | " + b2.getValue() + " | " + b3.getValue() + " ");
+                System.out.println("   " + b1.getValue() + " | " + b2.getValue() + " | " + b3.getValue() + " ");
                 System.out.println("---+---+---");
                 System.out.println(" " + c1.getValue() + " | " + c2.getValue() + " | " + c3.getValue() + " ");
 
