@@ -36,17 +36,22 @@ public class Main {
                 || (b1.getValue().equals(b2.getValue()) && b2.getValue().equals(b3.getValue()) && !b1.getValue().equals(" "))
                 || (c1.getValue().equals(c2.getValue()) && c2.getValue().equals(c3.getValue()) && !c1.getValue().equals(" "))
                 || (a1.getValue().equals(b1.getValue()) && b1.getValue().equals(c1.getValue()) && !c1.getValue().equals(" "))
-                ||(a2.getValue().equals(b2.getValue()) && b2.getValue().equals(c2.getValue()) && !c2.getValue().equals(" "))
-        || (a3.getValue().equals(b3.getValue()) && b3.getValue().equals(c3.getValue()) && !c3.getValue().equals(" "))
-        ||(a3.getValue().equals(b2.getValue()) && b2.getValue().equals(c1.getValue()) && !c1.getValue().equals(" "))
-        || (a1.getValue().equals(b2.getValue()) && b2.getValue().equals(c3.getValue()) && !c3.getValue().equals(" "))) {
-            System.out.println("We have a winner"); //find a way to chech who won
+                || (a2.getValue().equals(b2.getValue()) && b2.getValue().equals(c2.getValue()) && !c2.getValue().equals(" "))
+                || (a3.getValue().equals(b3.getValue()) && b3.getValue().equals(c3.getValue()) && !c3.getValue().equals(" "))
+                || (a3.getValue().equals(b2.getValue()) && b2.getValue().equals(c1.getValue()) && !c1.getValue().equals(" "))
+                || (a1.getValue().equals(b2.getValue()) && b2.getValue().equals(c3.getValue()) && !c3.getValue().equals(" "))) {
+            System.out.println("We have a winner"); //find a way to check who won
+        } else if (!a1.getValue().equals(" ") && !a2.getValue().equals(" ") && !a3.getValue().equals(" ") &&
+                !b1.getValue().equals(" ") && !b2.getValue().equals(" ") && !b3.getValue().equals(" ") &&
+                !c1.getValue().equals(" ") && !c2.getValue().equals(" ") && !c3.getValue().equals(" ")) {
+            System.out.println("No one won");
         } else {
             if ((p1.getIsTurn() == false && p2.getIsTurn() == true) || (p1.getIsTurn() == true && p2.getIsTurn() == false)) {
                 p2.move(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares);
             } else {
                 p1.move(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares);
-            } mainGame(p1, p2, sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares);
+            }
+            mainGame(p1, p2, sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares);
         }
 
     }
