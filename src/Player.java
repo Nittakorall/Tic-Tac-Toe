@@ -51,17 +51,11 @@ public class Player {
         return isTurn;
     }
 
-    public void setIsTurn(boolean isTurn) {
-        this.isTurn = isTurn;
-    }
 
     public String getSymbol() {
         return symbol;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
 
     public String getName() {
         return name;
