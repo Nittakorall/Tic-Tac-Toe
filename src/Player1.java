@@ -29,11 +29,11 @@ public class Player1 extends Player implements Move {
                         System.out.println(" " + b1.getValue() + " | " + b2.getValue() + " | " + b3.getValue() + " ");
                         System.out.println("---+---+---");
                         System.out.println(" " + c1.getValue() + " | " + c2.getValue() + " | " + c3.getValue() + " ");
-                        return; // Avsluta metoden när en giltig och ledig plats är vald
+                        return; // Avsluta både loopen och metoden när en giltig och ledig plats är vald (Aizo)
                     } else {
                         System.out.println("Square is taken. Please pick another one.");
                     }
-                    break; // Avsluta loopen när en matchande plats hittas
+                    break; // Avsluta loopen när en matchande plats hittas (Aizo)
                 }
             }
 

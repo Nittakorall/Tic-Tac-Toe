@@ -1,11 +1,13 @@
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
+
 
 public class Game {
     public Game() {
     }
 
-    public void game() {
+    public static void game() {
         Scanner sc = new Scanner(System.in);
         TicTacToeSquare a1 = new TicTacToeSquare(" ", "a1");
         TicTacToeSquare a2 = new TicTacToeSquare(" ", "a2");
@@ -26,10 +28,22 @@ public class Game {
         allSquares.add(c1);
         allSquares.add(c2);
         allSquares.add(c3);
-        Player1 p1 = new Player1("P1");
-        Player2 p2 = new Player2("P2");
-        System.out.println("Welcome to the game!");
+        System.out.println("First player, what's your name?");
+        String playerName = sc.nextLine();
+        Player1 p1 = new Player1(playerName);
+        System.out.println("Nice to meet you, " + playerName + "! Second player, what's your name?");
+        playerName = sc.nextLine();
+        Player2 p2 = new Player2(playerName);
+        if (p1.getName().equals(p2.getName())) {
+            p1.setName(p1.getName() + " (X)");
+            p2.setName(p2.getName() + " (O)");
+            System.out.println("Oh no, you have same names! First player will be " + p1.getName() + " and second player will be " + p2.getName());
+        }
+        else {
+            System.out.println("Nice to meet you too, " + p2.getName());
+        }
         boolean isFirstPlayer = true; // checks which player was last, need to find the winner.
+        System.out.println("Time to start!");
         mainGame(p1, p2, sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, isFirstPlayer);
     }
 
@@ -43,14 +57,19 @@ public class Game {
                 || (a3.getValue().equals(b2.getValue()) && b2.getValue().equals(c1.getValue()) && !c1.getValue().equals(" "))
                 || (a1.getValue().equals(b2.getValue()) && b2.getValue().equals(c3.getValue()) && !c3.getValue().equals(" "))) {
             if (isFirstPlayer == true) {
-                System.out.println("First Player won!");
+                System.out.println(p1.getName() + "wins!");
+                playAgainQuestion(p1, p2, sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, isFirstPlayer);
+
+
             } else {
-                System.out.println("Second player won!");
+                System.out.println(p2.getName() + "wins!");
+                playAgainQuestion(p1, p2, sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, isFirstPlayer);
             }
         } else if (!a1.getValue().equals(" ") && !a2.getValue().equals(" ") && !a3.getValue().equals(" ") && //no square is empty
                 !b1.getValue().equals(" ") && !b2.getValue().equals(" ") && !b3.getValue().equals(" ") &&
                 !c1.getValue().equals(" ") && !c2.getValue().equals(" ") && !c3.getValue().equals(" ")) {
             System.out.println("No one won");
+            playAgainQuestion(p1, p2, sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, isFirstPlayer);
         } else {
             if ((p1.getIsTurn() == false && p2.getIsTurn() == true) || (p1.getIsTurn() == true && p2.getIsTurn() == false)) {
                 p2.move(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares);
@@ -63,5 +82,26 @@ public class Game {
             mainGame(p1, p2, sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, isFirstPlayer);
         }
 
+    }
+
+    static void playAgainQuestion(Player1 p1, Player2 p2, Scanner sc, TicTacToeSquare a1, TicTacToeSquare a2, TicTacToeSquare a3, TicTacToeSquare b1, TicTacToeSquare b2, TicTacToeSquare b3, TicTacToeSquare c1, TicTacToeSquare c2, TicTacToeSquare c3, ArrayList<TicTacToeSquare> allSquares, boolean isFirstPlayer) {
+        System.out.println("Would you like to play one more time? yes/no");
+        while (true) {
+            String playAgainAnswer = sc.nextLine();
+            playAgainAnswer.toLowerCase();// doesn't work
+            boolean validInput = false;
+            if (playAgainAnswer.equals("yes") || playAgainAnswer.equals("no")) {
+                validInput = true;
+                if (playAgainAnswer.equals("yes")) {
+                    System.out.println("Let's play one more time!");
+                    game();
+                    return;
+                } else {
+                    System.out.println("That was fun. Come again!");
+                }break;
+            }
+
+            System.out.println("Invalid answer. Would you like to play again? yes/no");
+        }
     }
 }
