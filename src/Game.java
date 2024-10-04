@@ -45,21 +45,21 @@ public class Game {
                 System.out.println(p1.getName() + " wins!");
                 firstPlayerScore++;
                 System.out.println("Total score is " + firstPlayerScore + ":" + secondPlayerScore);
-                playAgainQuestion(p1, p2, sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, isFirstPlayer, firstPlayerScore, secondPlayerScore);
+                playAgainQuestion(p1, p2, sc, firstPlayerScore, secondPlayerScore);
 
 
             } else {
                 System.out.println(p2.getName() + " wins!");
                secondPlayerScore++;
                 System.out.println("Total score is " + firstPlayerScore + ":" + secondPlayerScore);
-                playAgainQuestion(p1, p2, sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, isFirstPlayer, firstPlayerScore, secondPlayerScore);
+                playAgainQuestion(p1, p2, sc, firstPlayerScore, secondPlayerScore);
             }
         } else if (!a1.getValue().equals(" ") && !a2.getValue().equals(" ") && !a3.getValue().equals(" ") && //no square is empty
                 !b1.getValue().equals(" ") && !b2.getValue().equals(" ") && !b3.getValue().equals(" ") &&
                 !c1.getValue().equals(" ") && !c2.getValue().equals(" ") && !c3.getValue().equals(" ")) {
             System.out.println("No one wins");
             System.out.println("Total score is " + firstPlayerScore + ":" + secondPlayerScore);
-            playAgainQuestion(p1, p2, sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, isFirstPlayer, firstPlayerScore, secondPlayerScore);
+            playAgainQuestion(p1, p2, sc, firstPlayerScore, secondPlayerScore);
         } else {
             if ((p1.getIsTurn() == false && p2.getIsTurn() == true) || (p1.getIsTurn() == true && p2.getIsTurn() == false)) {
                 p2.move(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares);
@@ -74,7 +74,7 @@ public class Game {
 
     }
 
-    static void playAgainQuestion(Player p1, Player p2, Scanner sc, TicTacToeSquare a1, TicTacToeSquare a2, TicTacToeSquare a3, TicTacToeSquare b1, TicTacToeSquare b2, TicTacToeSquare b3, TicTacToeSquare c1, TicTacToeSquare c2, TicTacToeSquare c3, ArrayList<TicTacToeSquare> allSquares, boolean isFirstPlayer, int firstPlayerScore, int secondPlayerScore) {
+    static void playAgainQuestion(Player p1, Player p2, Scanner sc, int firstPlayerScore, int secondPlayerScore) {
         System.out.println("Would you like to play one more time? yes/no");
         while (true) {
             String playAgainAnswer = sc.nextLine();
@@ -83,7 +83,7 @@ public class Game {
             if (playAgainAnswerLowerCase.equals("yes") || playAgainAnswerLowerCase.equals("no")) {
                 validInput = true;
                 if (playAgainAnswerLowerCase.equals("yes")) {
-                    System.out.println("Let's play one more time! Second player starts!"); // not a bug, feature ;_;
+                    System.out.println("\nLet's play one more time! Second player starts!"); // not a bug, feature ;_;
                     game(firstPlayerScore, secondPlayerScore, p1, p2);
                     return;
                 } else {

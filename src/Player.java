@@ -52,11 +52,6 @@ public class Player {
     }
 
 
-    public String getSymbol() {
-        return symbol;
-    }
-
-
     public String getName() {
         return name;
     }
