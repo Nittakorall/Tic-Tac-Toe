@@ -1,7 +1,8 @@
 abstract public class Player {
-   protected String name;
-  protected   String symbol;
+    protected String name;
+    protected String symbol;
     protected boolean isTurn;
+
 
     public String getName() {
         return name;
@@ -11,13 +12,6 @@ abstract public class Player {
         this.name = name;
     }
 
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
 
     public boolean getIsTurn() {
         return isTurn;
@@ -32,7 +26,4 @@ abstract public class Player {
         this.symbol = symbol;
         this.isTurn = isTurn;
     }
-//    public String toString() {
-//
-//    }
 }
