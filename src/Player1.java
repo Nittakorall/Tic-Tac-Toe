@@ -18,9 +18,9 @@ public class Player1 extends Player implements Move {
         while (true) {
             String answer = sc.nextLine();
             boolean validInput = false;
-
+            String answerLowerCase = answer.toLowerCase();
             for (TicTacToeSquare s : allSquares) {
-                if (answer.equals(s.getPlace())) {
+                if (answerLowerCase.equals(s.getPlace())) {
                     validInput = true;
                     if (s.getValue().equals(" ")) {
                         s.setValue(symbol);

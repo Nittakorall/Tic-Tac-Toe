@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 
 // add tolowercase!!!!
+// add empty user name??
+
 
 
 public class Main {
@@ -15,7 +17,8 @@ public class Main {
         int firstPlayerScore = 0;
         int secondPlayerScore = 0;
         System.out.println("First player, what's your name?");
-        String playerName = sc.nextLine();
+        String playerName;
+            playerName = sc.nextLine();
         Player1 p1 = new Player1(playerName);
         System.out.println("Nice to meet you, " + playerName + "! Second player, what's your name?");
         playerName = sc.nextLine();
