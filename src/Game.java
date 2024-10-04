@@ -78,11 +78,11 @@ public class Game {
         System.out.println("Would you like to play one more time? yes/no");
         while (true) {
             String playAgainAnswer = sc.nextLine();
-            playAgainAnswer.toLowerCase();// doesn't work
+            String playAgainAnswerLowerCase = playAgainAnswer.toLowerCase();// doesn't work
             boolean validInput = false;
-            if (playAgainAnswer.equals("yes") || playAgainAnswer.equals("no")) {
+            if (playAgainAnswerLowerCase.equals("yes") || playAgainAnswer.equals("no")) {
                 validInput = true;
-                if (playAgainAnswer.equals("yes")) {
+                if (playAgainAnswerLowerCase.equals("yes")) {
                     System.out.println("Let's play one more time! Second player starts!"); // not a bug, feature ;_;
                     game(firstPlayerScore, secondPlayerScore, p1, p2);
                     return;

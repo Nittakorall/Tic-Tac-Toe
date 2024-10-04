@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 
 
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in); //moved Player objects here to prevent name changing if the game restarts. Full restart needed to change names
@@ -29,7 +30,7 @@ public class Main {
             System.out.println("Oh no, you have same names! First player will be " + p1.getName() + " and second player will be " + p2.getName());
         }
         else {
-            System.out.println("Nice to meet you too, " + p2.getName() + "! \n Let's begin!");
+            System.out.println("Nice to meet you too, " + p2.getName() + "! \nLet's begin! \n \nYou can pick between a1-a3, b1-b3 and c1-c3 \n");
         }
      game.game(firstPlayerScore, secondPlayerScore, p1, p2);
     }

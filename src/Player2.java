@@ -24,11 +24,11 @@ public class Player2 extends Player implements Move {
                     validInput = true;
                     if (s.getValue().equals(" ")) {
                         s.setValue(symbol);
-                        System.out.println(" " + a1.getValue() + " | " + a2.getValue() + " | " + a3.getValue() + " ");
-                        System.out.println("---+---+---");
-                        System.out.println(" " + b1.getValue() + " | " + b2.getValue() + " | " + b3.getValue() + " ");
-                        System.out.println("---+---+---");
-                        System.out.println(" " + c1.getValue() + " | " + c2.getValue() + " | " + c3.getValue() + " ");
+                        System.out.println("a(1-3)   " + a1.getValue() + " | " + a2.getValue() + " | " + a3.getValue() + " ");
+                        System.out.println("        ---+---+---");
+                        System.out.println("b(1-3)   " + b1.getValue() + " | " + b2.getValue() + " | " + b3.getValue() + " ");
+                        System.out.println("        ---+---+---");
+                        System.out.println("c(1-3)   " + c1.getValue() + " | " + c2.getValue() + " | " + c3.getValue() + " \n");
                         return; // Avsluta metoden när en giltig och ledig plats är vald
                     } else {
                         System.out.println("Square is taken. Please pick another one.");
