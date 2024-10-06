@@ -28,7 +28,7 @@ public class Player implements Move {
             loopThroughTheField(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, randomSquareIndex);
             isTurn = !isTurn;
         } else if (isBot == true) {
-            //     String randomSquare = allSquares.get(randomSquareIndex).getPlace();
+
             loopThroughTheField(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, randomSquareIndex);
             isTurn = !isTurn;
         }
@@ -75,10 +75,11 @@ public class Player implements Move {
                             System.out.println("---+---+---");
                             System.out.println(" " + c1.getValue() + " | " + c2.getValue() + " | " + c3.getValue() + " \n");
                             return; // Avsluta både loopen och metoden när en giltig och ledig plats är vald (Aizo)
+                        } else if (!randomSquare.equals("")) {
+                            randomSquareIndex = (int) (Math.random() * allSquares.size());
                         }
                     }
-
-                }break;
+                }
             }
         }
     }
