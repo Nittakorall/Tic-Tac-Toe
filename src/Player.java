@@ -27,7 +27,7 @@ public class Player implements Move {
             System.out.println(name + ", what's your next move?");
             loopThroughTheField(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, randomSquareIndex);
             isTurn = !isTurn;
-        } else {
+        } else if (isBot == true) {
             //     String randomSquare = allSquares.get(randomSquareIndex).getPlace();
             loopThroughTheField(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, randomSquareIndex);
             isTurn = !isTurn;
@@ -62,11 +62,10 @@ public class Player implements Move {
                     System.out.println("Please pick a valid square from a1 to c3.");
                 }
             }
-        } else {
+        } else if (isBot == true){
             while (true) {
                 String randomSquare = allSquares.get(randomSquareIndex).getPlace();
                 for (TicTacToeSquare s : allSquares) {
-
                     if (randomSquare.equals(s.getPlace())) {
                         if (s.getValue().equals(" ")) {
                             s.setValue(symbol);
@@ -79,7 +78,7 @@ public class Player implements Move {
                         }
                     }
 
-                }
+                }break;
             }
         }
     }

@@ -11,12 +11,15 @@ public class Game {
         System.out.println("Welcome to the game!");
         int firstPlayerScore = 0;
         int secondPlayerScore = 0;
-        System.out.println("1. 1 player \n 2. Two players");
+        System.out.println("Press 1 for one player \nPress 2 for two players");
         String oneOrTwoPlayers = sc.nextLine();
-        System.out.println("First player, what's your name?");
-        String playerName;
-        playerName = sc.nextLine();
-        Player p1 = new Player(playerName, "X", false);
+
+            System.out.println("First player, what's your name?");
+            String playerName;
+            playerName = sc.nextLine();
+            Player p1 = new Player(playerName, "X", false);
+
+
         if (oneOrTwoPlayers.equals("2")) {
             System.out.println("Nice to meet you, " + playerName + "! Second player, what's your name?");
             playerName = sc.nextLine();
@@ -82,7 +85,10 @@ public class Game {
         mainGame(p1, p2, sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, isFirstPlayer, firstPlayerScore, secondPlayerScore, randomSquareIndex);
     }
 
-    public static void mainGame(Player p1, Player p2, Scanner sc, TicTacToeSquare a1, TicTacToeSquare a2, TicTacToeSquare a3, TicTacToeSquare b1, TicTacToeSquare b2, TicTacToeSquare b3, TicTacToeSquare c1, TicTacToeSquare c2, TicTacToeSquare c3, ArrayList<TicTacToeSquare> allSquares, boolean isFirstPlayer, int firstPlayerScore, int secondPlayerScore, int randomSquareIndex) {
+    public static void mainGame(Player p1, Player p2, Scanner sc, TicTacToeSquare a1, TicTacToeSquare
+            a2, TicTacToeSquare a3, TicTacToeSquare b1, TicTacToeSquare b2, TicTacToeSquare b3, TicTacToeSquare
+                                        c1, TicTacToeSquare c2, TicTacToeSquare c3, ArrayList<TicTacToeSquare> allSquares, boolean isFirstPlayer,
+                                int firstPlayerScore, int secondPlayerScore, int randomSquareIndex) {
         if ((a1.getValue().equals(a2.getValue()) && a2.getValue().equals(a3.getValue()) && !a1.getValue().equals(" ")) //each stands for any kind of winning (in a row och in a column)
                 || (b1.getValue().equals(b2.getValue()) && b2.getValue().equals(b3.getValue()) && !b1.getValue().equals(" "))
                 || (c1.getValue().equals(c2.getValue()) && c2.getValue().equals(c3.getValue()) && !c1.getValue().equals(" "))
