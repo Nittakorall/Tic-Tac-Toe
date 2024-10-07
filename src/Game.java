@@ -36,13 +36,13 @@ public class Game {
                 p2.setName(p2.getName() + " (O)");
                 System.out.println("Oh no, you have same names! First player will be " + p1.getName() + " and second player will be " + p2.getName());
             } else {
-                System.out.println("Nice to meet you too, " + p2.getName() + "! \nLet's begin! \n \nYou can pick between a1-a3, b1-b3 and c1-c3: \n");
+                System.out.println("Nice to meet you too, " + p2.getName() + "! \nLet's begin! \n \nYou can pick between a1-a3, b1-b3 and c1-c3: \n");}
                 System.out.println(" a1| a2| a3");
                 System.out.println("---+---+---");
                 System.out.println(" b1| b2| b3 ");
                 System.out.println("---+---+---");
-                System.out.println(" c1| c2| c3 \n");
-            }
+             System.out.println(" c1| c2| c3 \n");
+
             gameStart(firstPlayerScore, secondPlayerScore, p1, p2, sc);
         } else if (oneOrTwoPlayers.equals("1")) {
 
@@ -52,14 +52,14 @@ public class Game {
                 p1.setName(p1.getName() + " (X)");
                 p2.setName(p2.getName() + " (O)");
                 System.out.println("Oh no, you have same names! First player will be " + p1.getName() + " and second player will be " + p2.getName());
-            } else {
+            }
                 System.out.println("Let's begin! \n \nYou can pick between a1-a3, b1-b3 and c1-c3: \n");
                 System.out.println(" a1| a2| a3");
                 System.out.println("---+---+---");
                 System.out.println(" b1| b2| b3 ");
                 System.out.println("---+---+---");
                 System.out.println(" c1| c2| c3 \n");
-            }
+
             gameStart(firstPlayerScore, secondPlayerScore, p1, p2, sc);
         }
     }
