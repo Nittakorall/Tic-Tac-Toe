@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Player implements Move {
+public class Player  {
     protected String name;
     protected String symbol;
     protected boolean isTurn;
@@ -21,7 +21,7 @@ public class Player implements Move {
         this.isBot = isBot;
     }
 
-    @Override
+
     public void move(Scanner sc, ArrayList<TicTacToeSquare> allSquares, int randomSquareIndex) {
             loopThroughTheField(sc, allSquares, randomSquareIndex);
           isTurn = !isTurn;
