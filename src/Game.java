@@ -89,21 +89,19 @@ public class Game {
         int randomSquareIndex = (int) (Math.random() * allSquares.size());//randomizer for computer-player
 
         boolean isFirstPlayer = true; // checks which player was last, need to find the winner.
-        mainGame(p1, p2, sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, isFirstPlayer, firstPlayerScore, secondPlayerScore, randomSquareIndex);
+        mainGame(p1, p2, sc, allSquares, isFirstPlayer, firstPlayerScore, secondPlayerScore, randomSquareIndex);
     }
 
-    public static void mainGame(Player p1, Player p2, Scanner sc, TicTacToeSquare a1, TicTacToeSquare
-            a2, TicTacToeSquare a3, TicTacToeSquare b1, TicTacToeSquare b2, TicTacToeSquare b3, TicTacToeSquare
-                                        c1, TicTacToeSquare c2, TicTacToeSquare c3, ArrayList<TicTacToeSquare> allSquares, boolean isFirstPlayer,
+    public static void mainGame(Player p1, Player p2, Scanner sc, ArrayList<TicTacToeSquare> allSquares, boolean isFirstPlayer,
                                 int firstPlayerScore, int secondPlayerScore, int randomSquareIndex) {
-        if ((a1.getValue().equals(a2.getValue()) && a2.getValue().equals(a3.getValue()) && !a1.getValue().equals(" ")) //each stands for any kind of winning (in a row och in a column)
-                || (b1.getValue().equals(b2.getValue()) && b2.getValue().equals(b3.getValue()) && !b1.getValue().equals(" "))
-                || (c1.getValue().equals(c2.getValue()) && c2.getValue().equals(c3.getValue()) && !c1.getValue().equals(" "))
-                || (a1.getValue().equals(b1.getValue()) && b1.getValue().equals(c1.getValue()) && !c1.getValue().equals(" "))
-                || (a2.getValue().equals(b2.getValue()) && b2.getValue().equals(c2.getValue()) && !c2.getValue().equals(" "))
-                || (a3.getValue().equals(b3.getValue()) && b3.getValue().equals(c3.getValue()) && !c3.getValue().equals(" "))
-                || (a3.getValue().equals(b2.getValue()) && b2.getValue().equals(c1.getValue()) && !c1.getValue().equals(" "))
-                || (a1.getValue().equals(b2.getValue()) && b2.getValue().equals(c3.getValue()) && !c3.getValue().equals(" "))) {
+        if ((allSquares.get(0).getValue().equals(allSquares.get(1).getValue()) && allSquares.get(1).getValue().equals(allSquares.get(2).getValue()) && !allSquares.get(0).getValue().equals(" ")) //each stands for any kind of winning (in a row och in a column)
+                || (allSquares.get(3).getValue().equals(allSquares.get(4).getValue()) && allSquares.get(4).getValue().equals(allSquares.get(5).getValue()) && !allSquares.get(3).getValue().equals(" "))
+                || (allSquares.get(6).getValue().equals(allSquares.get(7).getValue()) && allSquares.get(7).getValue().equals(allSquares.get(8).getValue()) && !allSquares.get(6).getValue().equals(" "))
+                || (allSquares.get(0).getValue().equals(allSquares.get(3).getValue()) && allSquares.get(3).getValue().equals(allSquares.get(6).getValue()) && !allSquares.get(6).getValue().equals(" "))
+                || (allSquares.get(2).getValue().equals(allSquares.get(4).getValue()) && allSquares.get(4).getValue().equals(allSquares.get(7).getValue()) && !allSquares.get(7).getValue().equals(" "))
+                || (allSquares.get(2).getValue().equals(allSquares.get(5).getValue()) && allSquares.get(5).getValue().equals(allSquares.get(8).getValue()) && !allSquares.get(8).getValue().equals(" "))
+                || (allSquares.get(2).getValue().equals(allSquares.get(4).getValue()) && allSquares.get(6).getValue().equals(allSquares.get(4).getValue()) && !allSquares.get(6).getValue().equals(" "))
+                || (allSquares.get(0).getValue().equals(allSquares.get(4).getValue()) && allSquares.get(4).getValue().equals(allSquares.get(8).getValue()) && !allSquares.get(8).getValue().equals(" "))) {
             if (isFirstPlayer == true) {
                 System.out.println(p1.getName() + " wins!");
                 firstPlayerScore++;
@@ -117,22 +115,22 @@ public class Game {
                 System.out.println("Total score is " + firstPlayerScore + ":" + secondPlayerScore);
                 playAgainQuestion(p1, p2, sc, firstPlayerScore, secondPlayerScore);
             }
-        } else if (!a1.getValue().equals(" ") && !a2.getValue().equals(" ") && !a3.getValue().equals(" ") && //no square is empty
-                !b1.getValue().equals(" ") && !b2.getValue().equals(" ") && !b3.getValue().equals(" ") &&
-                !c1.getValue().equals(" ") && !c2.getValue().equals(" ") && !c3.getValue().equals(" ")) {
+        } else if (!allSquares.get(0).getValue().equals(" ") && !allSquares.get(1).getValue().equals(" ") && !allSquares.get(2).getValue().equals(" ") && //no square is empty
+                !allSquares.get(3).getValue().equals(" ") && !allSquares.get(4).getValue().equals(" ") && !allSquares.get(5).getValue().equals(" ") &&
+                !allSquares.get(6).getValue().equals(" ") && !allSquares.get(7).getValue().equals(" ") && !allSquares.get(8).getValue().equals(" ")) {
             System.out.println("No one wins");
             System.out.println("Total score is " + firstPlayerScore + ":" + secondPlayerScore);
             playAgainQuestion(p1, p2, sc, firstPlayerScore, secondPlayerScore);
         } else {
             if ((p1.getIsTurn() == false && p2.getIsTurn() == true) || (p1.getIsTurn() == true && p2.getIsTurn() == false)) {
-                p2.move(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, randomSquareIndex);
+                p2.move(sc, allSquares, randomSquareIndex);
                 isFirstPlayer = false;
             } else {
 
-                p1.move(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, randomSquareIndex);
+                p1.move(sc, allSquares, randomSquareIndex);
                 isFirstPlayer = true;
             }
-            mainGame(p1, p2, sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, isFirstPlayer, firstPlayerScore, secondPlayerScore, randomSquareIndex);
+            mainGame(p1, p2, sc, allSquares, isFirstPlayer, firstPlayerScore, secondPlayerScore, randomSquareIndex);
         }
 
     }

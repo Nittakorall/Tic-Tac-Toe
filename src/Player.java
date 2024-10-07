@@ -22,19 +22,13 @@ public class Player implements Move {
     }
 
     @Override
-    public void move(Scanner sc, TicTacToeSquare a1, TicTacToeSquare a2, TicTacToeSquare a3,
-                     TicTacToeSquare b1, TicTacToeSquare b2, TicTacToeSquare b3,
-                     TicTacToeSquare c1, TicTacToeSquare c2, TicTacToeSquare c3,
-                     ArrayList<TicTacToeSquare> allSquares, int randomSquareIndex) {
-            loopThroughTheField(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, randomSquareIndex);
+    public void move(Scanner sc, ArrayList<TicTacToeSquare> allSquares, int randomSquareIndex) {
+            loopThroughTheField(sc, allSquares, randomSquareIndex);
           isTurn = !isTurn;
         }
 
 
-    void loopThroughTheField(Scanner sc, TicTacToeSquare a1, TicTacToeSquare a2, TicTacToeSquare a3,
-                             TicTacToeSquare b1, TicTacToeSquare b2, TicTacToeSquare b3,
-                             TicTacToeSquare c1, TicTacToeSquare c2, TicTacToeSquare c3,
-                             ArrayList<TicTacToeSquare> allSquares, int randomSquareIndex) {
+    void loopThroughTheField(Scanner sc, ArrayList<TicTacToeSquare> allSquares, int randomSquareIndex) {
         if (isBot == false) {
             System.out.println(name + ", your turn.");
             while (true) {
@@ -46,11 +40,12 @@ public class Player implements Move {
                         validInput = true;
                         if (s.getValue().equals(" ")) {
                             s.setValue(symbol);
-                            System.out.println(" " + a1.getValue() + " | " + a2.getValue() + " | " + a3.getValue() + " ");
+
+                            System.out.println(" " + allSquares.get(0).getValue() + " | " + allSquares.get(1).getValue() + " | " + allSquares.get(2).getValue() + " ");
                             System.out.println("---+---+---");
-                            System.out.println(" " + b1.getValue() + " | " + b2.getValue() + " | " + b3.getValue() + " ");
+                            System.out.println(" " + allSquares.get(3).getValue() + " | " + allSquares.get(4).getValue() + " | " + allSquares.get(5).getValue() + " ");
                             System.out.println("---+---+---");
-                            System.out.println(" " + c1.getValue() + " | " + c2.getValue() + " | " + c3.getValue() + " \n");
+                            System.out.println(" " + allSquares.get(6).getValue() + " | " + allSquares.get(7).getValue() + " | " + allSquares.get(8).getValue() + " \n");
                             return; // Avsluta både loopen och metoden när en giltig och ledig plats är vald (Aizo)
                         } else {
                             System.out.println("Square is taken. Please pick another one.");
@@ -73,11 +68,11 @@ public class Player implements Move {
                     if (randomSquare.equals(s.getPlace())) {
                         if (s.getValue().equals(" ")) {
                             s.setValue(symbol);
-                            System.out.println(" " + a1.getValue() + " | " + a2.getValue() + " | " + a3.getValue() + " ");
+                            System.out.println(" " + allSquares.get(0).getValue() + " | " + allSquares.get(1).getValue() + " | " + allSquares.get(2).getValue() + " ");
                             System.out.println("---+---+---");
-                            System.out.println(" " + b1.getValue() + " | " + b2.getValue() + " | " + b3.getValue() + " ");
+                            System.out.println(" " + allSquares.get(3).getValue() + " | " + allSquares.get(4).getValue() + " | " + allSquares.get(5).getValue() + " ");
                             System.out.println("---+---+---");
-                            System.out.println(" " + c1.getValue() + " | " + c2.getValue() + " | " + c3.getValue() + " \n");
+                            System.out.println(" " + allSquares.get(6).getValue() + " | " + allSquares.get(7).getValue() + " | " + allSquares.get(8).getValue() + " \n");
                             return; // Avsluta både loopen och metoden när en giltig och ledig plats är vald (Aizo)
                         } else if (!randomSquare.equals("")) {
                             randomSquareIndex = (int) (Math.random() * allSquares.size());
