@@ -12,12 +12,19 @@ public class Game {
         int firstPlayerScore = 0;
         int secondPlayerScore = 0;
         System.out.println("Press 1 for one player \nPress 2 for two players");
-        String oneOrTwoPlayers = sc.nextLine();
-
-            System.out.println("First player, what's your name?");
-            String playerName;
-            playerName = sc.nextLine();
-            Player p1 = new Player(playerName, "X", false);
+        String oneOrTwoPlayers;
+        while (true) {
+            oneOrTwoPlayers = sc.nextLine();
+            if (oneOrTwoPlayers.equals("1") || oneOrTwoPlayers.equals("2")) {
+                break;
+            } else {
+                System.out.println("Invalid input, try again");
+            }
+        }
+        System.out.println("First player, what's your name?");
+        String playerName;
+        playerName = sc.nextLine();
+        Player p1 = new Player(playerName, "X", false);
 
 
         if (oneOrTwoPlayers.equals("2")) {

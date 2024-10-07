@@ -22,20 +22,21 @@ public class Player implements Move {
     }
 
     @Override
-    public void move(Scanner sc, TicTacToeSquare a1, TicTacToeSquare a2, TicTacToeSquare a3, TicTacToeSquare b1, TicTacToeSquare b2, TicTacToeSquare b3, TicTacToeSquare c1, TicTacToeSquare c2, TicTacToeSquare c3, ArrayList<TicTacToeSquare> allSquares, int randomSquareIndex) {
-        if (isBot == false) {
-            System.out.println(name + ", what's your next move?");
+    public void move(Scanner sc, TicTacToeSquare a1, TicTacToeSquare a2, TicTacToeSquare a3,
+                     TicTacToeSquare b1, TicTacToeSquare b2, TicTacToeSquare b3,
+                     TicTacToeSquare c1, TicTacToeSquare c2, TicTacToeSquare c3,
+                     ArrayList<TicTacToeSquare> allSquares, int randomSquareIndex) {
             loopThroughTheField(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, randomSquareIndex);
-            isTurn = !isTurn;
-        } else if (isBot == true) {
-
-            loopThroughTheField(sc, a1, a2, a3, b1, b2, b3, c1, c2, c3, allSquares, randomSquareIndex);
-            isTurn = !isTurn;
+          isTurn = !isTurn;
         }
-    }
 
-    void loopThroughTheField(Scanner sc, TicTacToeSquare a1, TicTacToeSquare a2, TicTacToeSquare a3, TicTacToeSquare b1, TicTacToeSquare b2, TicTacToeSquare b3, TicTacToeSquare c1, TicTacToeSquare c2, TicTacToeSquare c3, ArrayList<TicTacToeSquare> allSquares, int randomSquareIndex) {
+
+    void loopThroughTheField(Scanner sc, TicTacToeSquare a1, TicTacToeSquare a2, TicTacToeSquare a3,
+                             TicTacToeSquare b1, TicTacToeSquare b2, TicTacToeSquare b3,
+                             TicTacToeSquare c1, TicTacToeSquare c2, TicTacToeSquare c3,
+                             ArrayList<TicTacToeSquare> allSquares, int randomSquareIndex) {
         if (isBot == false) {
+            System.out.println(name + ", your turn.");
             while (true) {
                 String answer = sc.nextLine();
                 boolean validInput = false;
@@ -61,9 +62,12 @@ public class Player implements Move {
                 if (!validInput) {
                     System.out.println("Please pick a valid square from a1 to c3.");
                 }
+
             }
-        } else if (isBot == true){
+        }
+         if (isBot == true) {  System.out.println("Now it's computers turn:");
             while (true) {
+
                 String randomSquare = allSquares.get(randomSquareIndex).getPlace();
                 for (TicTacToeSquare s : allSquares) {
                     if (randomSquare.equals(s.getPlace())) {
@@ -82,6 +86,7 @@ public class Player implements Move {
                 }
             }
         }
+
     }
 
     public boolean getIsTurn() {

@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
 // add empty user name??
-
+//weird move function
+//no try catch
+//for many function inputs
 
 public class Main {
     public static void main(String[] args) {
