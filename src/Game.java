@@ -144,7 +144,7 @@ public class Game {
             if (playAgainAnswerLowerCase.equals("yes") || playAgainAnswerLowerCase.equals("no")) {
                 validInput = true;
                 if (playAgainAnswerLowerCase.equals("yes")) {
-                    System.out.println("\nLet's play one more time! Second player starts!"); // not a bug, feature ;_;
+                    System.out.println("\nLet's play one more time!");
                     gameStart(firstPlayerScore, secondPlayerScore, p1, p2, sc);
                     return;
                 } else {
