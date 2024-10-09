@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Player  {
+public class Player {
     protected String name;
     protected String symbol;
     protected boolean isTurn;
@@ -23,9 +23,9 @@ public class Player  {
 
 
     public void move(Scanner sc, ArrayList<TicTacToeSquare> allSquares, int randomSquareIndex) {
-            loopThroughTheField(sc, allSquares, randomSquareIndex);
-          isTurn = !isTurn;
-        }
+        loopThroughTheField(sc, allSquares, randomSquareIndex);
+        isTurn = !isTurn;
+    }
 
 
     void loopThroughTheField(Scanner sc, ArrayList<TicTacToeSquare> allSquares, int randomSquareIndex) {
@@ -60,7 +60,8 @@ public class Player  {
 
             }
         }
-         if (isBot == true) {  System.out.println("Now it's computers turn:");
+        if (isBot == true) {
+            System.out.println("Now it's computers turn:");
             while (true) {
 
                 String randomSquare = allSquares.get(randomSquareIndex).getPlace();

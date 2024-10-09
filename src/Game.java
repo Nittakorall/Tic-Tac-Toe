@@ -36,12 +36,13 @@ public class Game {
                 p2.setName(p2.getName() + " (O)");
                 System.out.println("Oh no, you have same names! First player will be " + p1.getName() + " and second player will be " + p2.getName());
             } else {
-                System.out.println("Nice to meet you too, " + p2.getName() + "! \nLet's begin! \n \nYou can pick between a1-a3, b1-b3 and c1-c3: \n");}
-                System.out.println(" a1| a2| a3");
-                System.out.println("---+---+---");
-                System.out.println(" b1| b2| b3 ");
-                System.out.println("---+---+---");
-             System.out.println(" c1| c2| c3 \n");
+                System.out.println("Nice to meet you too, " + p2.getName() + "! \nLet's begin! \n \nYou can pick between a1-a3, b1-b3 and c1-c3: \n");
+            }
+            System.out.println(" a1| a2| a3");
+            System.out.println("---+---+---");
+            System.out.println(" b1| b2| b3 ");
+            System.out.println("---+---+---");
+            System.out.println(" c1| c2| c3 \n");
 
             gameStart(firstPlayerScore, secondPlayerScore, p1, p2, sc);
         } else if (oneOrTwoPlayers.equals("1")) {
@@ -53,12 +54,12 @@ public class Game {
                 p2.setName(p2.getName() + " (O)");
                 System.out.println("Oh no, you have same names! First player will be " + p1.getName() + " and second player will be " + p2.getName());
             }
-                System.out.println("Let's begin! \n \nYou can pick between a1-a3, b1-b3 and c1-c3: \n");
-                System.out.println(" a1| a2| a3");
-                System.out.println("---+---+---");
-                System.out.println(" b1| b2| b3 ");
-                System.out.println("---+---+---");
-                System.out.println(" c1| c2| c3 \n");
+            System.out.println("Let's begin! \n \nYou can pick between a1-a3, b1-b3 and c1-c3: \n");
+            System.out.println(" a1| a2| a3");
+            System.out.println("---+---+---");
+            System.out.println(" b1| b2| b3 ");
+            System.out.println("---+---+---");
+            System.out.println(" c1| c2| c3 \n");
 
             gameStart(firstPlayerScore, secondPlayerScore, p1, p2, sc);
         }
@@ -140,9 +141,9 @@ public class Game {
         while (true) {
             String playAgainAnswer = sc.nextLine();
             String playAgainAnswerLowerCase = playAgainAnswer.toLowerCase();// doesn't work
-            boolean validInput = false;
+
             if (playAgainAnswerLowerCase.equals("yes") || playAgainAnswerLowerCase.equals("no")) {
-                validInput = true;
+
                 if (playAgainAnswerLowerCase.equals("yes")) {
                     System.out.println("\nLet's play one more time!");
                     gameStart(firstPlayerScore, secondPlayerScore, p1, p2, sc);
